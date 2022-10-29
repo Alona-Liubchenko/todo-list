@@ -1,44 +1,13 @@
-import { useState } from 'react';
-import TodoList from './TodoList/TodoList';
-import InputField from './InputField/InputField';
+import Layout from './Layout/Layout';
+import AppBar from './AppBar/AppBar';
+import TaskForm from './TaskForm/TaskForm';
+import TaskList from './TaskList/TaskList';
 export const App = () => {
-  const [todos, setTodos] = useState([]);
-  const [text, setText] = useState('');
-  const addTodo = () => {
-    if (text.trim().length) {
-      setTodos([
-        ...todos,
-        {
-          id: new Date().toISOString(),
-          text,
-          completed: false,
-        },
-      ]);
-    }
-    setText('');
-  };
-  const removeTodo = todoId => {
-    setTodos(todos.filter(todo => todo.id !== todoId));
-  };
-  const toggleTodoComplete = todoId => {
-    setTodos(
-      todos.map(todo => {
-        if (todo.id !== todoId) return todo;
-        return {
-          ...todo,
-          completed: !todo.completed,
-        };
-      })
-    );
-  };
   return (
-    <div>
-      <InputField text={text} handleInput={setText} handleSubmit={addTodo} />
-      <TodoList
-        todos={todos}
-        toggleTodoComplete={toggleTodoComplete}
-        removeTodo={removeTodo}
-      />
-    </div>
+    <Layout>
+      <AppBar />
+      <TaskForm />
+      <TaskList />
+    </Layout>
   );
 };
