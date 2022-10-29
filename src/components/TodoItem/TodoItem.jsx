@@ -1,5 +1,4 @@
 const TodoItem = ({ id, text, completed, toggleTodoComplete, removeTodo }) => {
-  console.log(text);
   return (
     <li key={id}>
       <input

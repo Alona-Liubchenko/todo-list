@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TodoList from './TodoList/TodoList';
+import InputField from './InputField/InputField';
 export const App = () => {
   const [todos, setTodos] = useState([]);
   const [text, setText] = useState('');
@@ -32,12 +33,7 @@ export const App = () => {
   };
   return (
     <div>
-      <label htmlFor="">
-        <input value={text} onChange={e => setText(e.target.value)} />
-        <button type="button" onClick={addTodo}>
-          Add Todo
-        </button>
-      </label>
+      <InputField text={text} handleInput={setText} handleSubmit={addTodo} />
       <TodoList
         todos={todos}
         toggleTodoComplete={toggleTodoComplete}
