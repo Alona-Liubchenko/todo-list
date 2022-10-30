@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import statusFilters from 'redux/constants';
 import Button from 'components/Button/Button';
+import { getStatusFilter } from 'redux/selectors';
 const StatusFilter = () => {
-  const filter = useSelector(state => state.filter.status);
+  const filter = useSelector(getStatusFilter);
   return (
     <div>
       <Button selected={filter === statusFilters.all}>All</Button>
