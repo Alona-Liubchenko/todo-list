@@ -15,7 +15,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks } from 'redux/operations';
-import { getError, getIsLoading, getTasks } from 'redux/selectors';
+import { getError, getIsLoading } from 'redux/selectors';
 import Layout from './Layout/Layout';
 import AppBar from './AppBar/AppBar';
 import TaskForm from './TaskForm/TaskForm';
