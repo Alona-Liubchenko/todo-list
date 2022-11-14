@@ -3,14 +3,14 @@ import StatusFilter from 'components/StatusFilter/StatusFilter';
 const AppBar = () => {
   return (
     <header>
-      <section>
+      {/* <section>
         <h2>Task</h2>
         <TaskCounter />
       </section>
       <section>
         <h2>Filter by status</h2>
         <StatusFilter />
-      </section>
+      </section> */}
     </header>
   );
 };
