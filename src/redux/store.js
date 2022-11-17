@@ -1,36 +1,37 @@
-//redux
-// import { createStore } from 'redux';
-// import { legacy_createStore as createStore } from 'redux';
-// import { devToolsEnhancer } from '@redux-devtools/extension';
-// import { rootReducer } from './reducer';
+// //redux
+// // import { createStore } from 'redux';
+// // import { legacy_createStore as createStore } from 'redux';
+// // import { devToolsEnhancer } from '@redux-devtools/extension';
+// // import { rootReducer } from './reducer';
 
-// const enhancer = devToolsEnhancer();
-// const store = createStore(rootReducer, enhancer);
-// export default store;
+// // const enhancer = devToolsEnhancer();
+// // const store = createStore(rootReducer, enhancer);
+// // export default store;
 
-//redux-toolkit
+// //redux-toolkit
 
-// import { configureStore } from '@reduxjs/toolkit';
-// import { tasksReducer, filtersReducer } from './reducer';
+// // import { configureStore } from '@reduxjs/toolkit';
+// // import { tasksReducer, filtersReducer } from './reducer';
 
-// const store = configureStore({
-//   reducer: {
-//     tasks: tasksReducer,
-//     filters: filtersReducer,
-//   },
-// });
-// export default store;
+// // const store = configureStore({
+// //   reducer: {
+// //     tasks: tasksReducer,
+// //     filters: filtersReducer,
+// //   },
+// // });
+// // export default store;
 
-// import { configureStore } from '@reduxjs/toolkit';
-// import { tasksReducer } from './tasksSlice';
-// import { filtersReducer } from './filtersSlice';
+// // import { configureStore } from '@reduxjs/toolkit';
+// // import { tasksReducer } from './tasksSlice';
+// // import { filtersReducer } from './filtersSlice';
 
-// export const store = configureStore({
-//   reducer: {
-//     tasks: tasksReducer,
-//     filters: filtersReducer,
-//   },
-// });
+// // export const store = configureStore({
+// //   reducer: {
+// //     tasks: tasksReducer,
+// //     filters: filtersReducer,
+// //   },
+// // });
+
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -43,8 +44,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { tasksReducer } from './tasks/slice';
-import { authReducer } from './auth/slice';
+import { tasksReducer } from './tasksSlice';
+import { authReducer } from './auth/authSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -53,6 +54,8 @@ const middleware = [
     },
   }),
 ];
+
+// Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -67,4 +70,5 @@ export const store = configureStore({
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
+
 export const persistor = persistStore(store);
