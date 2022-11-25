@@ -7,7 +7,15 @@ import { AuthNav } from 'components/AuthNav/AuthNav';
 const AppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <header>
+    <header
+      style={{
+        display: 'flex',
+        justifycontent: 'space-between',
+        alignitems: 'center',
+        marginbottom: ' 16px',
+        borderbottom: '1px solid #2a363b',
+      }}
+    >
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
       {/* <section>
