@@ -16,8 +16,21 @@ const MenuAppBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
             <Navigation />
           </Typography>
           {isLoggedIn ? <UserMenu /> : <AuthNav />}
