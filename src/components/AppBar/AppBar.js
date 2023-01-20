@@ -14,14 +14,18 @@ import Typography from '@mui/material/Typography';
 const MenuAppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      // sx={{ flexGrow: 1 }}
+      sx={{ textAlign: 'center' }}
+    >
       <AppBar>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
-            component="a"
+            component="nav"
             href="/"
             sx={{
+              my: 2,
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
